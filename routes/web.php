@@ -13,6 +13,9 @@
 |
 */
 
-$router->group(["prefix" => "auth/v1"], function () use ($router) {
-    $router->post("register", "Auth\AuthController@register");
+$router->group(["prefix" => "api"], function () use ($router) {
+    $router->group(["prefix" => "auth/v1"], function () use ($router) {
+        $router->post("register", "Auth\AuthController@register");
+        $router->post("login", "Auth\AuthController@login");
+    });
 });
