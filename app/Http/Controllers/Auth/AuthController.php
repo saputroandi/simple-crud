@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Services\User\AuthServiceImpl;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -15,7 +16,7 @@ class AuthController extends Controller
   public function __construct(AuthServiceImpl $authService)
   {
     $this->authService = $authService;
-    $this->middleware('auth:api', ['except' => ['login', 'register']]);
+    // $this->middleware('auth:api', ['except' => ['login', 'register']]);
   }
 
   public function register(Request $request)
@@ -44,6 +45,7 @@ class AuthController extends Controller
 
     try {
       $result["token"] = $this->authService->login($data);
+      // $result["user"] = Auth::user();
 
       // if (!$result["token"] == false) response()->json(['message' => 'Unauthorized'], 401);
     } catch (Exception $e) {
