@@ -30,9 +30,7 @@ jobs:
           script: 
             cd ../var/www/
       - name: execute git pull
-        run: git pull 
-      - name: get main
-        run: origin main 
+        run: git pull origin main 
       - name: check status
         run: git status
       - name: composer install
