@@ -29,8 +29,10 @@ jobs:
           port: 22
           script: 
             cd ../var/www/
+      - name: remove existed directory
+        run: sudo rm simple_crud
       - name: execute git pull
-        run: git pull origin main 
+        run: git clone https://github.com/saputroandi/simple-crud
       - name: check status
         run: git status
       - name: composer install
