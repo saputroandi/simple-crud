@@ -28,10 +28,13 @@ jobs:
           password: CXbTu47mlG
           port: 22
           script: 
-            cd ..
-            cd var/www/
+            cd ../var/www/
+      - name: execute git pull
+        with:
+          script:
             git pull origin main
             git status
             composer install
             yes
             sudo systemctl restart nginx
+      
