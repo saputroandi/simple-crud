@@ -30,10 +30,14 @@ jobs:
           script: 
             cd ../var/www/
       - name: execute git pull
-        with:
-          script:
-            git pull origin main
-            git status
-            composer install
-            yes
-            sudo systemctl restart nginx
+        run: git pull 
+      - name: get main
+        run: origin main 
+      - name: check status
+        run: git status
+      - name: composer install
+        run: composer install
+      - name: answer yes
+        run: yes
+      - name: restart ngincx
+        run: sudo systemctl restart nginx
