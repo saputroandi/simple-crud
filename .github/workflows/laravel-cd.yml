@@ -28,7 +28,8 @@ jobs:
           password: CXbTu47mlG
           port: 22
           script: 
-            cd ../var/www/
+            cd ..
+            cd var/www/
             git pull origin main
             git status
             composer install
